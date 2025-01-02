@@ -1,6 +1,6 @@
 package middle;
 
-import catalogue.Product;
+import clients.catalogue.Product;
 
 import javax.swing.*;
 
@@ -20,7 +20,7 @@ public interface StockReader
    * @throws StockException if issue
    */
   boolean exists(String pNum) throws StockException;
-         
+
   /**
    * Returns details about the product in the stock list
    * @param pNum Product nymber

@@ -1,6 +1,6 @@
 package clients.packing;
 
-import catalogue.Basket;
+import clients.catalogue.Basket;
 import middle.MiddleFactory;
 import middle.OrderProcessing;
 

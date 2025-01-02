@@ -1,6 +1,6 @@
 package remote;
 
-import catalogue.Product;
+import clients.catalogue.Product;
 import middle.StockException;
 
 import javax.swing.*;

@@ -12,15 +12,20 @@ import java.util.ArrayList;
  * @version 3.0 Derby
  */
 
-class Setup 
+public class Setup
 {
-  private static String[] sqlStatements = {
+  private static final String[] sqlStatements = {
 
 //  " SQL code to set up database tables",
 
 //  "drop table ProductList",
 //  "drop table StockList",
 
+"drop table UserTable",
+"create table UserTable ("+
+        "userName      Char(20)," +
+        "Password    Varchar(20)," +
+        "HashedPass        varchar(100))",
 
   "drop table ProductTable",
   "create table ProductTable ("+
@@ -62,9 +67,10 @@ class Setup
   "select * from StockTable, ProductTable " +
           " where StockTable.productNo = ProductTable.productNo"
 
+
  };
 
-  public static void main(String[] args)
+  public static void runSetup()
   {
     Connection theCon    = null;      // Connection to database
     DBAccess   dbDriver  = null;
@@ -199,21 +205,21 @@ class Setup
                          "\n" + e.getMessage());
     }
   }
-  
-  private static String m( int len, String s )
-  {
-    if ( s.length() >= len )
-    {
-      return s.substring( 0, len-1 ) + " ";
-    }
-    else
-    {
-      StringBuilder res = new StringBuilder( len );
-      res.append( s );
-      for ( int i = s.length(); i<len; i++ )
-        res.append( ' ' );
-      return res.toString();
-    }
-  }
+
+//  private static String m( int len, String s )
+//  {
+//    if ( s.length() >= len )
+//    {
+//      return s.substring( 0, len-1 ) + " ";
+//    }
+//    else
+//    {
+//      StringBuilder res = new StringBuilder( len );
+//      res.append( s );
+//      for ( int i = s.length(); i<len; i++ )
+//        res.append( ' ' );
+//      return res.toString();
+//    }
+//  }
 
 }

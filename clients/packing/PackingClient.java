@@ -16,7 +16,7 @@ import javax.swing.*;
  */
 public class PackingClient 
 {
-   public static void main (String args[])
+   public static void runPackingClient (String args[])
    {
      String stockURL = args.length < 1     // URL of stock RW
                      ? Names.STOCK_RW      //  default  location

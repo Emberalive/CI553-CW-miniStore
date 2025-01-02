@@ -1,6 +1,6 @@
 package middle;
 
-import catalogue.Product;
+import clients.catalogue.Product;
 
 /**
   * Interface for read/write access to the stock list.

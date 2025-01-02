@@ -1,6 +1,5 @@
 package clients.cashier;
 
-import catalogue.*;
 import middle.MiddleFactory;
 import middle.Names;
 import middle.RemoteMiddleFactory;
@@ -14,7 +13,7 @@ import javax.swing.*;
 
 public class CashierClient
 {
-   public static void main (String args[])
+   public static void runCashierClient (String args[])
    {
      String stockURL = args.length < 1     // URL of stock RW
                      ? Names.STOCK_RW      //  default  location

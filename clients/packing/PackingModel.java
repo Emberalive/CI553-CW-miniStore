@@ -1,7 +1,7 @@
 package clients.packing;
 
 
-import catalogue.Basket;
+import clients.catalogue.Basket;
 import debug.DEBUG;
 import middle.MiddleFactory;
 import middle.OrderException;

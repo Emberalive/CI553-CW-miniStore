@@ -1,6 +1,6 @@
 package clients.cashier;
 
-import catalogue.Basket;
+import clients.catalogue.Basket;
 import middle.MiddleFactory;
 import middle.OrderProcessing;
 import middle.StockReadWriter;
@@ -14,7 +14,7 @@ import java.util.Observer;
 /**
  * View of the model 
  */
-public class CashierView implements Observer
+public class CashierView extends Component implements Observer
 {
   private static final int H = 300;       // Height of window pixels
   private static final int W = 400;       // Width  of window pixels

@@ -1,6 +1,6 @@
 package middle;
 
-import catalogue.Basket;
+import clients.catalogue.Basket;
 
 import java.util.List;
 import java.util.Map;

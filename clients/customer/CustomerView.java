@@ -1,7 +1,5 @@
 package clients.customer;
 
-import catalogue.Basket;
-import catalogue.BetterBasket;
 import clients.Picture;
 import middle.MiddleFactory;
 import middle.StockReader;
@@ -15,7 +13,7 @@ import java.util.Observer;
  * Implements the Customer view.
  */
 
-public class CustomerView implements Observer
+public class CustomerView extends Component implements Observer
 {
   class Name                              // Names of buttons
   {

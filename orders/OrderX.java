@@ -1,13 +1,11 @@
 
 package orders;
 
-import catalogue.Basket;
-import catalogue.Product;
+import clients.catalogue.Basket;
+import clients.catalogue.Product;
 import debug.DEBUG;
 import middle.OrderException;
 import middle.OrderProcessing;
-
-import java.util.stream.Collectors;
 
 import java.util.ArrayList;
 import java.util.HashMap;

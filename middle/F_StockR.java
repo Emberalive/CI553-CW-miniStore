@@ -9,7 +9,7 @@ package middle;
  * @version 2.0
  */
 
-import catalogue.Product;
+import clients.catalogue.Product;
 import debug.DEBUG;
 import remote.RemoteStockR_I;
 
