@@ -14,7 +14,8 @@ public class Product implements Serializable
   private String theProductNum;       // Product number
   private String theDescription;      // Description of product
   private double thePrice;            // Price of product
-  private int    theQuantity;         // Quantity involved
+  private int    theQuantity;
+  private String theProdName;                                    // Quantity involved
 
   /**
    * Construct a product details
@@ -24,12 +25,13 @@ public class Product implements Serializable
    * @param aQuantity The Quantity of the product involved
    */
   public Product( String aProductNum, String aDescription,
-                  double aPrice, int aQuantity )
+                  double aPrice, int aQuantity, String aProdName )
   {
     theProductNum  = aProductNum;     // Product number
     theDescription = aDescription;    // Description of product
     thePrice       = aPrice;          // Price of product
     theQuantity    = aQuantity;       // Quantity involved
+    theProdName  = aProdName;
   }
 
 
@@ -39,6 +41,7 @@ public class Product implements Serializable
   public String getDescription() { return theDescription; }
   public double getPrice()       { return thePrice; }
   public int    getQuantity()    { return theQuantity; }
+  public String getProdName() { return theProdName; }
   
   public void setProductNum( String aProductNum )
   { 
@@ -60,4 +63,5 @@ public class Product implements Serializable
     theQuantity = aQuantity;
   }
 
+  public void setTheProdName (String aProdName ){ theProdName = aProdName; }
 }
