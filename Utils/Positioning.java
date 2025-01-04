@@ -145,7 +145,7 @@ public class Positioning {
         }
     }
 
-    public void SetMonitorLocBackDoor(Component c) {
+    public void SetMonitorLocStock(Component c) {
         GraphicsDevice[] screens = GetDeviceEnvironment();
 
         //selecting which monitor to open on
