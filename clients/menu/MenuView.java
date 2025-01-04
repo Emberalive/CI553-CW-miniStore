@@ -5,8 +5,6 @@ import middle.MiddleFactory;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.Arrays;
-
 
 public class MenuView extends JFrame {
     private final JButton cashier;
@@ -30,7 +28,7 @@ public class MenuView extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
         //layout and components
-        setLayout(new GridLayout(4, 1));
+        setLayout(new GridLayout(3, 1));
         cashier = new JButton("Cashier Interface");
         customer = new JButton("Customer Interface");
         packing = new JButton("Packing Interface");

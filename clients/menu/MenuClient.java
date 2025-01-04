@@ -1,6 +1,5 @@
 package clients.menu;
 
-import clients.Setup;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
 import Utils.Positioning;

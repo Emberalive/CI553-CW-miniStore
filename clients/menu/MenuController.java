@@ -1,11 +1,10 @@
 package clients.menu;
 
 import Utils.Positioning;
-import clients.backDoor.Login.StockLoginController;
-import clients.backDoor.Login.StockLoginModel;
-import clients.backDoor.Login.StockLoginView;
+import clients.stockManager.Login.StockLoginController;
+import clients.stockManager.Login.StockLoginModel;
+import clients.stockManager.Login.StockLoginView;
 import clients.cashier.Login.LoginController;
-import clients.cashier.Login.LoginModel;
 import clients.cashier.Login.LoginModel;
 import clients.cashier.Login.LoginView;
 import clients.catalogue.CatalogueView;
@@ -46,7 +45,7 @@ public class MenuController {
             CustLoginController Cc = new CustLoginController(cv, cm, mlf);
             cv.setController(Cc);
             Positioning pos = new Positioning();
-            pos.SetMonLocCashier(cv);
+            pos.SetMonLocCustomer(cv);
             cv.setVisible(true);});
     }
 
@@ -57,7 +56,7 @@ public class MenuController {
             PackLoginController pc = new PackLoginController(pv, pm, mlf);
             pv.setController(pc);
             Positioning pos = new Positioning();
-            pos.SetMonLocCashier(pv);
+            pos.SetMonitorLocPacking(pv);
             pv.setVisible(true);
         });
     }
@@ -69,7 +68,7 @@ public class MenuController {
             StockLoginController sc = new StockLoginController(sv, sm, mlf);
             sv.setController(sc);
             Positioning pos = new Positioning();
-            pos.SetMonLocCashier(sv);
+            pos.SetMonitorLocStock(sv);
             sv.setVisible(true);
         });
     }
