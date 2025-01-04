@@ -1,5 +1,6 @@
 package clients.catalogue;
 import Utils.Positioning;
+import Utils.Styling;
 import catalogueInterface.Catalogue;
 import catalogueInterface.CatalogueImpl;
 
@@ -8,6 +9,7 @@ import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.ArrayList;
+import java.util.function.Predicate;
 
 public class CatalogueView extends Component {
 
@@ -40,27 +42,17 @@ public class CatalogueView extends Component {
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         window.add(scrollPane);
 
-//        JTextArea productList = new JTextArea(30, 30);
-//        productList.setEditable(false);
-//
-//        //formatting text display
-//        productList.setLineWrap(true);
-//        productList.setWrapStyleWord(true);
-//
-//        // adding a scrollPane
-//        JScrollPane catScroll = new JScrollPane();
-//        catScroll.setBounds(0, 0 ,370, 670 );// Scrolling pane
-//        //setting the text for the window
-//        String text = getProductDetails(products);
-//        productList.setText(text); // Set product details
-//
-//        System.out.println("Setting text: " + "\n" + text); // Debug output
-//        //making the window scrollable
-//        catScroll.getViewport().add(productList);
+        //styling
+        Styling styling = new Styling();
+        Predicate<Component> condition = component -> component instanceof JPanel || component instanceof JLabel;
+        styling.styling(mainPanel, Color.GRAY, Color.BLACK, condition);
+
 
         //adding the components to the window
         window.setLayout(new BorderLayout());
         window.add(scrollPane, BorderLayout.CENTER);
+
+
 
         //calling the position method
         Positioning pos = new Positioning();
@@ -70,11 +62,13 @@ public class CatalogueView extends Component {
         window.setVisible(true);
     }
     private JPanel createProductCard(Product product) {
+
         JPanel cardPanel = new JPanel();
         cardPanel.setPreferredSize(new Dimension(260, 100)); // Fixed size
         cardPanel.setMinimumSize(new Dimension(260, 100));
         cardPanel.setMaximumSize(new Dimension(260, 100));
         cardPanel.setBorder(BorderFactory.createLineBorder(Color.BLACK));
+
 
         cardPanel.setLayout(new GridBagLayout());
         GridBagConstraints gbc = new GridBagConstraints();
@@ -94,6 +88,8 @@ public class CatalogueView extends Component {
         gbc.gridy = 1;
         gbc.insets = new Insets(10, 5, 5, 5); // Add top space for the button
         cardPanel.add(viewDetails, gbc);
+        viewDetails.setBackground(Color.DARK_GRAY);
+        viewDetails.setForeground(Color.WHITE);
 
         //adding an actionListener to the button
         viewDetails.addActionListener(e -> {
@@ -107,25 +103,9 @@ public class CatalogueView extends Component {
                 cardPanel.setBackground(Color.LIGHT_GRAY);
             }
             public void mouseExited(MouseEvent e) {
-                cardPanel.setBackground(Color.WHITE);
+                cardPanel.setBackground(Color.GRAY);
             }
         });
         return cardPanel;
     }
-
-
-
-
-
-//    public String getProductDetails(ArrayList<Product> products){
-//        StringBuilder sb = new StringBuilder(); //using a StringBuilder to format the text
-//        for (Product product : products) {
-//            //Append the product details to one string
-//            sb.append("Product NO: ").append(product.getProductNum()).append("\n");
-//            sb.append("Description: ").append(product.getDescription()).append("\n");
-//            sb.append("Price: ").append(product.getPrice()).append("\n");
-//            sb.append("-----------------------------------------------------\n");  // Separator for each product
-//        }
-//        return sb.toString();
-//    }
 }

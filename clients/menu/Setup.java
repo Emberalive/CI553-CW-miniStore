@@ -27,7 +27,7 @@ public class Setup
         "Password    Varchar(20)," +
         "HashedPass        varchar(100))",
 
-          // "drop table ProductTable",
+           "drop table ProductTable",
           "create table ProductTable ("+
                   "productNo      Char(4), " +
                   "description    Varchar(40), " +
