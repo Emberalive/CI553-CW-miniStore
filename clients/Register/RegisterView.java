@@ -54,6 +54,5 @@ public class RegisterView extends JFrame {
                 ex.printStackTrace();
             }
         });
-
     }
 }
