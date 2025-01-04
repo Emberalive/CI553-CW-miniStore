@@ -43,7 +43,7 @@ public class CustLoginModel extends Component {
         String hashedPass;
         CustLoginModel model = new CustLoginModel();
 
-        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM UserTable WHERE username = ?");
+        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM EmplTable WHERE username = ?");
         query.setString(1, user);
         ResultSet rs = query.executeQuery();
         if (rs.next()) {
@@ -100,7 +100,7 @@ public class CustLoginModel extends Component {
     {
         //setting the window for the GUI
         JFrame window = new JFrame();
-        window.setTitle( "Customer Client MVC");
+        window.setTitle( "Customer Client");
         window.setDefaultCloseOperation( JFrame.HIDE_ON_CLOSE);
 
         //creating the correct parameters for the CustomerView

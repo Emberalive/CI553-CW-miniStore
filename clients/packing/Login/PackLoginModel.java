@@ -43,7 +43,7 @@ public class PackLoginModel extends Component {
         String hashedPass;
         PackLoginModel model = new PackLoginModel();
 
-        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM UserTable WHERE username = ?");
+        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM EmplTable WHERE username = ?");
         query.setString(1, user);
         ResultSet rs = query.executeQuery();
         if (rs.next()) {
@@ -100,7 +100,7 @@ public class PackLoginModel extends Component {
     {
         //setting the window for the GUI
         JFrame  window = new JFrame();
-        window.setTitle( "Packing Client MVC");
+        window.setTitle( "Packing Client");
         window.setDefaultCloseOperation( JFrame.HIDE_ON_CLOSE );
 
         //creating the correct parameters for the CustomerView

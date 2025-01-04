@@ -1,0 +1,10 @@
+8515a7de2ae7f145cc5e9cdb8981396e596e2e1c9eeff435814046a5f1d0724b *bcrypt-0.10.2-javadoc.jar
+a4faaeb00d9de657f7bb4912ae7396fbd0e08584abf2d507d8d821869170f582 *bcrypt-0.10.2-optimized.jar
+8fb702b0f2ec50d1c1f89c9d5a1fd8a9a22be9b4e92b88dbabd6c46713275c00 *bcrypt-0.10.2-sources.jar
+65700f11e88eee92742a69341f64e642556882eff73afcccbb4072011e0fc9fe *bcrypt-0.10.2.jar
+optimized.jar.asc
+8fb702b0f2ec50d1c1f89c9d5a1fd8a9a22be9b4e92b88dbabd6c46713275c00 *bcrypt-0.10.2-sources.jar
+f2be2381a63f59e6945cb7b8edc87b20ed913bf04e82ffd0d36b16a2ffd1aae5 *bcrypt-0.10.2-sources.jar.asc
+0b1fb99db605955de904d8e61782a53dddbadd12619a0cf37dd88b5d14a61957 *bcrypt-0.10.2.jar
+a2d0b07530ea2e65ceb907bc4a9441f87577bff2c36353ffc249e36103342328 *bcrypt-0.10.2.jar.asc
+49f1cc0c42fcbb15a8a1925fbbccbe31c3606d05b1d8e67002a554b6a139fda2 *bcrypt-0.10.2.pom.asc

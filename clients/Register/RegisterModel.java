@@ -17,7 +17,7 @@ public class RegisterModel {
 
      Positioning pos = new Positioning();
 
-     pos.SetMonLocCashier(view);
+     pos.SetMonitorStartUpMenu(view);
      view.setVisible(true);
 }
 
@@ -41,13 +41,13 @@ public class RegisterModel {
         String hashedPass;
         hashedPass = (String) HashPass(password);
         PreparedStatement query;
-        query = connection.prepareStatement("INSERT INTO UserTable (userName, Password, HashedPass) VALUES (? , ?, ?)");
+        query = connection.prepareStatement("INSERT INTO EmplTable (userName, Password, HashedPass) VALUES (? , ?, ?)");
         query.setString(1, username);
         query.setString(2, password);
         query.setString(3, hashedPass);
         query.executeUpdate();
         if (query.getUpdateCount() == 1) {
-            System.out.println("User " + username + " added to the database.");
+            System.out.println("Employee " + username + " added to the database.");
             view.setVisible(false);
         } else {
             System.out.println("User was not added to the database.");

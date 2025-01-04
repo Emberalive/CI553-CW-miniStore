@@ -41,7 +41,7 @@ public class LoginModel extends Component {
         String hashedPass;
         LoginModel model = new LoginModel();
 
-        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM UserTable WHERE username = ?");
+        PreparedStatement query = connection.prepareStatement("SELECT HashedPass, username FROM EmplTable WHERE username = ?");
         query.setString(1, user);
         ResultSet rs = query.executeQuery();
         if (rs.next()) {
@@ -98,7 +98,7 @@ public class LoginModel extends Component {
     void displayCashierGUI(MiddleFactory mf) {
         JFrame window = new JFrame();
 
-        window.setTitle("Logged In as employeeName");
+        window.setTitle("Cashier Client");
         window.setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 
         CashierModel model = new CashierModel(mf);
