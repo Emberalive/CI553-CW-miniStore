@@ -1,5 +1,6 @@
 package clients.stockManager;
 
+import Utils.Styling;
 import middle.MiddleFactory;
 import middle.StockReadWriter;
 
@@ -7,6 +8,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.function.Predicate;
 
 /**
  * Implements the Customer view.
@@ -51,6 +53,7 @@ public class StockManagerView implements Observer
       System.out.println("Exception: " + e.getMessage() );
     }
     Container cp         = rpc.getContentPane();    // Content Pane
+    cp.setBackground(Color.LIGHT_GRAY);
     Container rootWindow = (Container) rpc;         // Root Window
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
@@ -98,6 +101,14 @@ public class StockManagerView implements Observer
     theSP.getViewport().add( theOutput );           //  In TextArea
     rootWindow.setVisible( true );                  // Make visible
     theInput.requestFocus();                        // Focus is here
+
+    Styling styling = new Styling();
+    Predicate<Component> condition = component ->
+            component instanceof JLabel ||
+                    component instanceof JTextField ||
+                    component instanceof JTextArea ||
+                    component instanceof JButton;
+    styling.styling(cp, Color.GRAY, Color.BLACK, condition);
   }
   
   public void setController( StockManagerController c )

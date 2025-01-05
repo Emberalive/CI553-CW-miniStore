@@ -45,7 +45,7 @@ public class CatalogueView extends Component {
         //styling
         Styling styling = new Styling();
         Predicate<Component> condition = component -> component instanceof JPanel || component instanceof JLabel;
-        styling.styling(mainPanel, Color.GRAY, Color.BLACK, condition);
+        styling.styling(mainPanel, Color.LIGHT_GRAY, Color.BLACK, condition);
 
 
         //adding the components to the window
@@ -88,8 +88,8 @@ public class CatalogueView extends Component {
         gbc.gridy = 1;
         gbc.insets = new Insets(10, 5, 5, 5); // Add top space for the button
         cardPanel.add(viewDetails, gbc);
-        viewDetails.setBackground(Color.DARK_GRAY);
-        viewDetails.setForeground(Color.WHITE);
+        viewDetails.setBackground(Color.GRAY);
+        viewDetails.setForeground(Color.BLACK);
 
         //adding an actionListener to the button
         viewDetails.addActionListener(e -> {
@@ -100,10 +100,10 @@ public class CatalogueView extends Component {
         //adding a mouse interaction
         cardPanel.addMouseListener(new MouseAdapter() {
             public void mouseEntered(MouseEvent e) {
-                cardPanel.setBackground(Color.LIGHT_GRAY);
+                cardPanel.setBackground(Color.WHITE);
             }
             public void mouseExited(MouseEvent e) {
-                cardPanel.setBackground(Color.GRAY);
+                cardPanel.setBackground(Color.LIGHT_GRAY);
             }
         });
         return cardPanel;

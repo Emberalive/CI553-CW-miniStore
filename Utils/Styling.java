@@ -10,9 +10,13 @@ public class Styling {
         for (Component component : container.getComponents()){
             //set the background and foreground
             if (condition.test(component)){
-                if (component instanceof JComponent){
+                if (component instanceof JComponent){ //checking if the condition applies
                     component.setBackground(background);
                     component.setForeground(foreground);
+                    if (component instanceof JComponent){
+                        component.setBackground(background);
+                        component.setForeground(foreground);
+                    }
                 }
             }
             //if there are child components, will run recursively through those components

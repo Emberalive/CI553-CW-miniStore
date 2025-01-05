@@ -1,5 +1,6 @@
 package clients.customer;
 
+import Utils.Styling;
 import clients.Picture;
 import middle.MiddleFactory;
 import middle.StockReader;
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.function.Predicate;
 
 /**
  * Implements the Customer view.
@@ -54,6 +56,7 @@ public class CustomerView extends Component implements Observer
       System.out.println("Exception: " + e.getMessage() );
     }
     Container cp         = rpc.getContentPane();    // Content Pane
+    cp.setBackground(Color.LIGHT_GRAY); // Set the background color
     Container rootWindow = (Container) rpc;         // Root Window
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
@@ -95,6 +98,14 @@ public class CustomerView extends Component implements Observer
     
     rootWindow.setVisible( true );                  // Make visible);
     theInput.requestFocus();                        // Focus is here
+
+    Styling styling = new Styling();
+    Predicate<Component> condition = component ->
+            component instanceof JLabel ||
+                    component instanceof JTextField ||
+                    component instanceof JTextArea ||
+                    component instanceof JButton;
+    styling.styling(cp, Color.GRAY, Color.BLACK, condition);
   }
 
    /**

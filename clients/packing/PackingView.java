@@ -1,5 +1,6 @@
 package clients.packing;
 
+import Utils.Styling;
 import clients.catalogue.Basket;
 import middle.MiddleFactory;
 import middle.OrderProcessing;
@@ -8,6 +9,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.util.Observable;
 import java.util.Observer;
+import java.util.function.Predicate;
 
 /**
  * Implements the Packing view.
@@ -48,6 +50,7 @@ public class PackingView implements Observer
       System.out.println("Exception: " + e.getMessage() );
     }
     Container cp         = rpc.getContentPane();    // Content Pane
+    cp.setBackground(Color.LIGHT_GRAY);
     Container rootWindow = (Container) rpc;         // Root Window
     cp.setLayout(null);                             // No layout manager
     rootWindow.setSize( W, H );                     // Size of Window
@@ -74,6 +77,14 @@ public class PackingView implements Observer
     cp.add( theSP );                                //  Add to canvas
     theSP.getViewport().add( theOutput );           //  In TextArea
     rootWindow.setVisible( true );                  // Make visible
+
+    Styling styling = new Styling();
+    Predicate<Component> condition = component ->
+            component instanceof JLabel ||
+                    component instanceof JTextField ||
+                    component instanceof JTextArea ||
+                    component instanceof JButton;
+    styling.styling(cp, Color.GRAY, Color.BLACK, condition);
   }
   
   public void setController( PackingController c )

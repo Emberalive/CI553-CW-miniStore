@@ -1,11 +1,14 @@
 package clients.cashier.Login;
 
 
+import Utils.Styling;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
 
 import javax.swing.*;
+import java.awt.*;
 import java.sql.SQLException;
+import java.util.function.Predicate;
 
 public class LoginView extends JFrame {
     private final JTextField usernameField;
@@ -22,8 +25,9 @@ public class LoginView extends JFrame {
         setSize(400, 250);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
-        //layout and components
-        setLayout(null);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(null);
+        mainPanel.setBackground(Color.LIGHT_GRAY);
 
         //adding the username fields
         JLabel usernameLabel = new JLabel("Username");
@@ -61,13 +65,25 @@ public class LoginView extends JFrame {
         //calling the button methods in the Controller
         this.controller.handleRegisteration();
 
+
+        //Making sure the changes are visible
+        mainPanel.revalidate();
+        mainPanel.repaint();
+
         //adding the components
-        add(usernameLabel);
-        add(usernameField);
-        add(passwordLabel);
-        add(passwordField);
-        add(loginButton);
-        add(registerButton);
+        mainPanel.add(usernameLabel);
+        mainPanel.add(usernameField);
+        mainPanel.add(passwordLabel);
+        mainPanel.add(passwordField);
+        mainPanel.add(loginButton);
+        mainPanel.add(registerButton);
+
+        add(mainPanel);
+
+        Styling styling = new Styling();
+
+        Predicate<Component> condition = component -> component instanceof JPanel || component instanceof JButton || component instanceof JLabel || component instanceof JTextField || component instanceof JPasswordField;
+        styling.styling(mainPanel, Color.GRAY, Color.BLACK, condition);
     }
 
     public JButton getRegisterButton() {

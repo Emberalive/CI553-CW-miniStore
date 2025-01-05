@@ -1,7 +1,11 @@
 package clients.Register;
 
+import Utils.Styling;
+
 import javax.swing.*;
+import java.awt.*;
 import java.sql.SQLException;
+import java.util.function.Predicate;
 
 public class RegisterView extends JFrame {
     private JTextField usernameField;
@@ -15,7 +19,9 @@ public class RegisterView extends JFrame {
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
         //layout and components
-        setLayout(null);
+        JPanel mainPanel = new JPanel();
+        mainPanel.setLayout(null);
+        mainPanel.setBackground(Color.LIGHT_GRAY);
 
 
         //adding the username label
@@ -35,11 +41,13 @@ public class RegisterView extends JFrame {
         register.setBounds(150, 150, 150, 30);
 
         //adding the components
-        add(usernameLabel);
-        add(usernameField);
-        add(passwordLabel);
-        add(passwordField);
-        add(register);
+        mainPanel.add(usernameLabel);
+        mainPanel.add(usernameField);
+        mainPanel.add(passwordLabel);
+        mainPanel.add(passwordField);
+        mainPanel.add(register);
+
+        add(mainPanel);
 
         controller = new RegisterController(model, this);
 
@@ -54,5 +62,11 @@ public class RegisterView extends JFrame {
                 ex.printStackTrace();
             }
         });
+
+        Styling styling = new Styling();
+
+        Predicate<Component> condition = component -> component instanceof JPanel || component instanceof JButton || component instanceof JLabel || component instanceof JTextField || component instanceof JPasswordField;
+        styling.styling(mainPanel, Color.GRAY, Color.BLACK, condition);
+
     }
 }
