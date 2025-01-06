@@ -1,4 +1,4 @@
-package clients.cashier.login;
+package login;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import clients.cashier.CashierController;
@@ -24,7 +24,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Observer;
 
 public class LoginModel extends Component {
     private static Connection connection;

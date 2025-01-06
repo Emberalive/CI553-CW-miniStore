@@ -1,8 +1,8 @@
 package clients.menu;
 
 import Utils.Positioning;
-import clients.cashier.login.LoginModel;
-import clients.cashier.login.LoginView;
+import login.LoginModel;
+import login.LoginView;
 import clients.catalogue.CatalogueView;
 import middle.MiddleFactory;
 

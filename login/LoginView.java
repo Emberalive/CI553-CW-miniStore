@@ -1,7 +1,8 @@
-package clients.cashier.login;
+package login;
 
 
 import Utils.Styling;
+import clients.Picture;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
 import javax.swing.*;
@@ -17,6 +18,7 @@ public class LoginView extends JFrame {
     MiddleFactory mlf = new LocalMiddleFactory();
     LoginModel model = new LoginModel();
     LoginController controller = new LoginController(this, model, mlf);
+
 
     public LoginView(LoginModel.TargetView targetView) {
         //setting up the window

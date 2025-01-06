@@ -32,7 +32,7 @@ public class CatalogueImpl implements Catalogue {
         List<Product> products = new ArrayList<>();   //stores all the products selected through the select query
         //setting and executing the query
         PreparedStatement query;
-        query = connection.prepareStatement("SELECT p.productNo, p.description, p.price, p.prodName, s.stockLevel " +    //using PreparedStatements as having a String leaves
+        query = connection.prepareStatement("SELECT p.picture, p.productNo, p.description, p.price, p.prodName, s.stockLevel " +    //using PreparedStatements as having a String leaves
                 "FROM ProductTable p " +
                 "LEFT JOIN StockTable s ON p.productNo = s.productNo");
         query.execute();
