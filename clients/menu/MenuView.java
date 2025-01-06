@@ -72,11 +72,12 @@ public class MenuView extends JFrame {
         this.setLocation(xPos, yPos);
 
         //call the ActionListeners
-        this.controller.runCashier(mlf);
-        this.controller.runCustomer(mlf);
-        this.controller.runPacking(mlf);
+        this.controller.runLoginView(mlf);
+//        this.controller.runCashier(mlf);
+//        this.controller.runCustomer(mlf);
+//        this.controller.runPacking(mlf);
         this.controller.runExit();
-        this.controller.runStockClient(mlf);
+//        this.controller.runStockClient(mlf);
         this.controller.runCatalogue();
     }
 

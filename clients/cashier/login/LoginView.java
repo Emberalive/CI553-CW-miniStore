@@ -4,7 +4,6 @@ package clients.cashier.login;
 import Utils.Styling;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;
@@ -19,7 +18,7 @@ public class LoginView extends JFrame {
     LoginModel model = new LoginModel();
     LoginController controller = new LoginController(this, model, mlf);
 
-    public LoginView() {
+    public LoginView(LoginModel.TargetView targetView) {
         //setting up the window
         setTitle("Cashier Login");
         setSize(400, 250);
@@ -56,7 +55,7 @@ public class LoginView extends JFrame {
             String username = usernameField.getText();
             String password = new String(passwordField.getPassword()); // Ensure you use the correct method to get password
             try {
-                controller.startGetAddUser(username, password, this);
+                controller.startGetAUser(username, password, targetView);
             } catch (SQLException ex) {
                 throw new RuntimeException(ex);
             }
@@ -64,7 +63,6 @@ public class LoginView extends JFrame {
 
         //calling the button methods in the Controller
         this.controller.handleRegisteration();
-
 
         //Making sure the changes are visible
         mainPanel.revalidate();

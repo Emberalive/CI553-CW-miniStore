@@ -21,9 +21,9 @@ public class LoginController {
         this.mlf = mlf;
     }
 
-    public void startGetAddUser(String username, String password, LoginView view) throws SQLException {
+    public void startGetAUser(String username, String password, LoginModel.TargetView enumVal) throws SQLException {
         LoginModel model = new LoginModel();
-        model.getAUser(username, password, view);
+        model.getAUser(username, password, view, enumVal);
     }
 
     public void handleRegisteration() {
