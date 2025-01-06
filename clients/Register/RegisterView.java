@@ -1,7 +1,6 @@
 package clients.Register;
 
 import Utils.Styling;
-
 import javax.swing.*;
 import java.awt.*;
 import java.sql.SQLException;

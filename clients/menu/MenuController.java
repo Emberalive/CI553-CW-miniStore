@@ -4,9 +4,9 @@ import Utils.Positioning;
 import clients.stockManager.Login.StockLoginController;
 import clients.stockManager.Login.StockLoginModel;
 import clients.stockManager.Login.StockLoginView;
-import clients.cashier.Login.LoginController;
-import clients.cashier.Login.LoginModel;
-import clients.cashier.Login.LoginView;
+import clients.cashier.login.LoginController;
+import clients.cashier.login.LoginModel;
+import clients.cashier.login.LoginView;
 import clients.catalogue.CatalogueView;
 import clients.customer.CustLogin.CustLoginController;
 import clients.customer.CustLogin.CustLoginModel;
@@ -18,12 +18,10 @@ import middle.MiddleFactory;
 
 
 public class MenuController {
-    private final MenuModel model;
     private final MenuView view;
 
-    public MenuController(MenuView view, MiddleFactory mlf, MenuModel model) {
+    public MenuController(MenuView view, MiddleFactory mlf) {
         this.view = view;
-        this.model = model;
     }
     // Add action listeners for each button
     public void runCashier(MiddleFactory mlf) {
@@ -75,6 +73,10 @@ public class MenuController {
 
     public void runExit(){
         view.getExitButton().addActionListener(e -> System.exit(0));
+
+    }
+
+    public void runCatalogue(){
         view.getCatalogueButton().addActionListener(e -> {
             new CatalogueView().setVisible(true);
         });

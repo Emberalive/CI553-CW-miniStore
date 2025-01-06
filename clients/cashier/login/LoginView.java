@@ -1,4 +1,4 @@
-package clients.cashier.Login;
+package clients.cashier.login;
 
 
 import Utils.Styling;
@@ -38,7 +38,7 @@ public class LoginView extends JFrame {
         passwordField = new JPasswordField();
 
         //adding the buttons
-        loginButton = new JButton("Login");
+        loginButton = new JButton("login");
         registerButton = new JButton("Register");
 
         //setting the placement of all the fields

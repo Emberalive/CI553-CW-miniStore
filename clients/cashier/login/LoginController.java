@@ -1,4 +1,4 @@
-package clients.cashier.Login;
+package clients.cashier.login;
 
 import clients.Register.RegisterController;
 import clients.Register.RegisterModel;

@@ -17,9 +17,8 @@ public class MenuView extends JFrame {
     private final JButton StockClient;
 
     //set the parameters for the run GUI methods in controller
-    MenuModel model = new MenuModel();
     MiddleFactory mlf = new LocalMiddleFactory();
-    MenuController controller = new MenuController(this, mlf, model);
+    MenuController controller = new MenuController(this, mlf);
 
 
     public MenuView() {
@@ -62,10 +61,7 @@ public class MenuView extends JFrame {
         //Styling
         Predicate<Component>  button = b -> b instanceof JButton;
         styling.styling(ButtonPanel, Color.GRAY, Color.BLACK, button);
-
         ButtonPanel.setBackground(Color.DARK_GRAY);
-
-
 
         add(mainPanel);
 
@@ -81,6 +77,7 @@ public class MenuView extends JFrame {
         this.controller.runPacking(mlf);
         this.controller.runExit();
         this.controller.runStockClient(mlf);
+        this.controller.runCatalogue();
     }
 
     //set access to the buttons for the controller

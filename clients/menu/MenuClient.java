@@ -18,7 +18,7 @@ public class MenuClient {
         MiddleFactory mlf = new LocalMiddleFactory();  // Direct access
         pos.SetMonitorStartUpMenu(view);
         // Create the MainMenuController and pass the view and args
-        MenuController controller = new MenuController(view, mlf, model);
+        MenuController controller = new MenuController(view, mlf);
 
         // Display the main menu
         view.setVisible(true);

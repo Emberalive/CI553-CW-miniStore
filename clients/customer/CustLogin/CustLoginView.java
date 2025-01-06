@@ -2,7 +2,6 @@ package clients.customer.CustLogin;
 
 
 import Utils.Styling;
-import clients.customer.CustLogin.CustLoginController;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
 
@@ -37,7 +36,7 @@ public class CustLoginView extends JFrame {
         usernameField = new JTextField();
         JLabel passwordLabel = new JLabel("Password");
         passwordField = new JPasswordField();
-        loginButton = new JButton("Login");
+        loginButton = new JButton("login");
         registerButton = new JButton("Register");
 
         usernameLabel.setBounds(50, 50, 100, 30); // x, y, width, height

@@ -1,5 +1,4 @@
-package clients.cashier.Login;
-
+package clients.cashier.login;
 
 import at.favre.lib.crypto.bcrypt.BCrypt;
 import clients.cashier.CashierController;
@@ -16,6 +15,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.Observer;
 
 
 public class LoginModel extends Component {
@@ -60,7 +60,7 @@ public class LoginModel extends Component {
                 return;
             }
             showErrorMessage(view);
-
+            return;
         }
         BCrypt.Result result = BCrypt.verifyer().verify(password.toCharArray(), bcryptHashString);
         if (result.verified) {
@@ -109,7 +109,7 @@ public class LoginModel extends Component {
 
         pos.SetMonLocCashier(window);
 
-        model.addObserver(view);       // Add observer to the model
+        model.addObserver((Observer) view);       // Add observer to the model
         window.setVisible(true);         // Display Screen
         model.askForUpdate();
     }

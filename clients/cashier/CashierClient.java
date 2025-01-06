@@ -5,6 +5,7 @@ import middle.Names;
 import middle.RemoteMiddleFactory;
 
 import javax.swing.*;
+import java.util.Observer;
 
 /**
  * The standalone Cashier Client.
@@ -41,7 +42,7 @@ public class CashierClient
     CashierController cont  = new CashierController( model, view );
     view.setController( cont );
 
-    model.addObserver( view );       // Add observer to the model
+    model.addObserver((Observer) view);       // Add observer to the model
     window.setVisible(true);         // Display Screen
     model.askForUpdate();
   }

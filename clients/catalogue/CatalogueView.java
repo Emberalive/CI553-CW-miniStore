@@ -47,12 +47,9 @@ public class CatalogueView extends Component {
         Predicate<Component> condition = component -> component instanceof JPanel || component instanceof JLabel;
         styling.styling(mainPanel, Color.LIGHT_GRAY, Color.BLACK, condition);
 
-
         //adding the components to the window
         window.setLayout(new BorderLayout());
         window.add(scrollPane, BorderLayout.CENTER);
-
-
 
         //calling the position method
         Positioning pos = new Positioning();
@@ -94,7 +91,10 @@ public class CatalogueView extends Component {
         //adding an actionListener to the button
         viewDetails.addActionListener(e -> {
             JOptionPane.showMessageDialog(cardPanel,
-                    "Details for " + product.getProdName() + "\n" + product.getDescription() + "\n" + product.getPrice());
+                    "Details for "+ product.getProdName() +"\nProductNo: " +
+                            product.getProductNum() + "\n" +
+                            product.getDescription() + "\n" +
+                            product.getPrice());
         });
 
         //adding a mouse interaction
