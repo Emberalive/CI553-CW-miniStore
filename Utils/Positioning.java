@@ -183,7 +183,6 @@ public class Positioning {
                 int xPos = monitorBounds.x + (monitorBounds.width - c.getWidth()) / 5;
                 int yPos = monitorBounds.y + (monitorBounds.height - c.getHeight()) / 4;
                 c.setLocation(xPos, yPos);
-//                ((Window) c).setLocationRelativeTo(null); // Centers relative to the primary screen
             } else {
                 c.setLocation(0, 0); // Default to center on primary monitor
 
