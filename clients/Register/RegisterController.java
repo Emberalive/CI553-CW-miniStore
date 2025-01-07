@@ -1,5 +1,7 @@
 package clients.Register;
 
+import login.ViewManager;
+
 import java.sql.SQLException;
 
 public class RegisterController {
@@ -8,9 +10,6 @@ public class RegisterController {
     public RegisterController(RegisterModel model, RegisterView view) {
         this.model = model;
         this.view = view;
-        }
-        public void startGUI() {
-            model.displayRegisterGUI();
         }
 
     public void startAddUser(String username, String password) throws SQLException {

@@ -1,6 +1,9 @@
 package login;
 
 import Utils.Positioning;
+import clients.Register.RegisterController;
+import clients.Register.RegisterModel;
+import clients.Register.RegisterView;
 import clients.cashier.CashierController;
 import clients.cashier.CashierModel;
 import clients.cashier.CashierView;
@@ -100,5 +103,13 @@ public class ViewManager {
 
         model.addObserver( view );       // Add observer to the model
         window.setVisible(true);         // Make window visible
+    }
+
+    public void startRegisterGUI(){
+        Positioning pos = new Positioning();
+        RegisterView view = new RegisterView();
+
+        pos.SetMonitorStartUpMenu(view);
+        view.setVisible(true);
     }
 }

@@ -16,7 +16,6 @@ public class MenuController {
     // Add action listeners for each button
     public void runLoginView(MiddleFactory mlf) {
         view.getCashierButton().addActionListener(e -> openLoginView(LoginModel.TargetView.CASHIER_VIEW));
-        view.getCustomerButton().addActionListener(e -> openLoginView(LoginModel.TargetView.CUSTOMER_VIEW));
         view.getBackDoorButton().addActionListener(e -> openLoginView(LoginModel.TargetView.STOCK_VIEW));
         view.getPackingButton().addActionListener(e -> openLoginView(LoginModel.TargetView.PACKING_VIEW));
     }

@@ -13,7 +13,7 @@ public class RegisterView extends JFrame {
     RegisterController controller;
 
     public RegisterView() {
-        setTitle("Register Account");
+        setTitle("Register Employee");
         setSize(400, 250);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
@@ -53,7 +53,6 @@ public class RegisterView extends JFrame {
         register.addActionListener(e -> {
             String username = usernameField.getText();
             String password = passwordField.getText();
-
             try {
                 controller.startAddUser(username, password);
             } catch (SQLException ex) {

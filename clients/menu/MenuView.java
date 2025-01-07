@@ -44,7 +44,6 @@ public class MenuView extends JFrame {
 
         //add the buttons
         ButtonPanel.add(cashier);
-        ButtonPanel.add(customer);
         ButtonPanel.add(packing);
         ButtonPanel.add(catalogue);
         ButtonPanel.add(StockClient);
@@ -56,7 +55,6 @@ public class MenuView extends JFrame {
         ButtonPanel.add(footerPanel);
 
         mainPanel.add(ButtonPanel, BorderLayout.CENTER);
-        mainPanel.add(footerPanel, BorderLayout.SOUTH);
 
         //Styling
         Predicate<Component>  button = b -> b instanceof JButton;
@@ -73,21 +71,13 @@ public class MenuView extends JFrame {
 
         //call the ActionListeners
         this.controller.runLoginView(mlf);
-//        this.controller.runCashier(mlf);
-//        this.controller.runCustomer(mlf);
-//        this.controller.runPacking(mlf);
         this.controller.runExit();
-//        this.controller.runStockClient(mlf);
         this.controller.runCatalogue();
     }
 
     //set access to the buttons for the controller
     public JButton getCashierButton() {
         return cashier;
-    }
-
-    public JButton getCustomerButton() {
-        return customer;
     }
 
     public JButton getPackingButton() {

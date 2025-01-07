@@ -28,11 +28,8 @@ public class LoginController {
 
     public void handleRegisteration() {
         this.view.getRegisterButton().addActionListener(e -> {
-            RegisterModel model = new RegisterModel();
-            RegisterView view = new RegisterView();
-            RegisterController controller = new RegisterController(model, view);
-            controller.startGUI();
+            ViewManager manager = new ViewManager();
+            manager.startRegisterGUI();
         });
     }
-
 }

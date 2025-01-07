@@ -10,18 +10,6 @@ import java.sql.*;
 public class RegisterModel {
     private static Connection connection;
 
- public void displayRegisterGUI(){
-     RegisterModel model = new RegisterModel();
-     RegisterView view = new RegisterView();
-     RegisterController controller = new RegisterController(model, view);
-
-     Positioning pos = new Positioning();
-
-     pos.SetMonitorStartUpMenu(view);
-     view.setVisible(true);
-}
-
-
     public static void LoginDBAccess()  { //gives access to the database
         try {
             DBAccess dbDriver = (new DBAccessFactory()).getNewDBAccess(); //creates a new databaseAccess
@@ -52,7 +40,6 @@ public class RegisterModel {
             System.out.println("User was not added to the database.");
         }
     }
-
 
     public Object HashPass (String password){
         String HashString = BCrypt.withDefaults().hashToString(12, password.toCharArray());
