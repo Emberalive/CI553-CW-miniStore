@@ -4,7 +4,7 @@ package clients.customer;
  * The Customer Controller
  */
 
-public class qCustomerController
+public class CustomerController
 {
   private CustomerModel model = null;
   private CustomerView  view  = null;

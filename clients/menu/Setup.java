@@ -24,7 +24,6 @@ public class Setup
 "drop table EmplTable",
 "create table EmplTable ("+
         "userName      Char(20)," +
-        "Password    Varchar(20)," +
         "HashedPass        varchar(100))",
 
            "drop table ProductTable",

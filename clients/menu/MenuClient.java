@@ -13,7 +13,6 @@ public class MenuClient {
 
         // Create the MainMenuView
         MenuView view = new MenuView();
-        MenuModel model = new MenuModel();
         Positioning pos = new Positioning();
         MiddleFactory mlf = new LocalMiddleFactory();  // Direct access
         pos.SetMonitorStartUpMenu(view);

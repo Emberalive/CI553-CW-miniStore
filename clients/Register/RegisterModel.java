@@ -41,10 +41,9 @@ public class RegisterModel {
         String hashedPass;
         hashedPass = (String) HashPass(password);
         PreparedStatement query;
-        query = connection.prepareStatement("INSERT INTO EmplTable (userName, Password, HashedPass) VALUES (? , ?, ?)");
+        query = connection.prepareStatement("INSERT INTO EmplTable (userName, HashedPass) VALUES (? , ?)");
         query.setString(1, username);
-        query.setString(2, password);
-        query.setString(3, hashedPass);
+        query.setString(2, hashedPass);
         query.executeUpdate();
         if (query.getUpdateCount() == 1) {
             System.out.println("Employee " + username + " added to the database.");

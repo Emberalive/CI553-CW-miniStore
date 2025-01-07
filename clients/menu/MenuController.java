@@ -25,7 +25,25 @@ public class MenuController {
         LoginView loginView = new LoginView(targetView);
         Positioning pos = new Positioning();
         pos.SetMonitorStartUpMenu(loginView);
-        loginView.setVisible(true);
+        switch (targetView) {
+            case CASHIER_VIEW:
+                loginView.setTitle("Cashier Login");
+                loginView.setVisible(true);
+                break;
+        case CUSTOMER_VIEW:
+            loginView.setTitle("Customer Login");
+            loginView.setVisible(true);
+            break;
+        case STOCK_VIEW:
+            loginView.setTitle("Stock Login");
+            loginView.setVisible(true);
+            break;
+        case PACKING_VIEW:
+            loginView.setTitle("Packing Login");
+            loginView.setVisible(true);
+            break;
+            default:
+        }
     }
 
     public void runExit(){

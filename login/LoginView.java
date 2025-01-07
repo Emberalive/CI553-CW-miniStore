@@ -22,7 +22,6 @@ public class LoginView extends JFrame {
 
     public LoginView(LoginModel.TargetView targetView) {
         //setting up the window
-        setTitle("Cashier Login");
         setSize(400, 250);
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
