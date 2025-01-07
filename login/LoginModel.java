@@ -49,8 +49,7 @@ public class LoginModel extends Component {
             hashedPass = rs.getString("HashedPass");
             model.checkPassword(hashedPass, password, view, targetView, user);
         } else {
-            showErrorMessage(view);
-            System.out.println("This User does not exist.");
+            JOptionPane.showMessageDialog(view, "This user does not exist");
         }
     }
 

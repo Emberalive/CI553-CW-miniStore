@@ -8,7 +8,7 @@ public class Positioning {
         GraphicsDevice[] screens = GetDeviceEnvironment();
 
         //selecting which monitor to open on
-        int monitorIndex = 0; // Change to the index of your desired monitor
+        int monitorIndex = 1; // Change to the index of your desired monitor
         if (monitorIndex < screens.length) {
             GraphicsDevice selectedMonitor = screens[monitorIndex];
             System.out.println("\nMenu Opened On \n   Monitor: " + selectedMonitor);
@@ -164,7 +164,7 @@ public class Positioning {
         GraphicsDevice[] screens = GetDeviceEnvironment();
 
         //selecting which monitor to open on
-        int monitorIndex = 0; // Change to the index of your desired monitor
+        int monitorIndex = 1; // Change to the index of your desired monitor
         if (monitorIndex < screens.length) {
             GraphicsDevice selectedMonitor = screens[monitorIndex];
             System.out.println("\nPacking Interface opened ON \n    Monitor: " + selectedMonitor);
