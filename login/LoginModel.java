@@ -49,13 +49,10 @@ public class LoginModel extends Component {
             hashedPass = rs.getString("HashedPass");
             model.checkPassword(hashedPass, password, view, targetView, user);
         } else {
-<<<<<<< Updated upstream
             JOptionPane.showMessageDialog(view, "This user does not exist");
-=======
             JOptionPane.showMessageDialog(view,
                     "There is no employee with these credentials");
             System.out.println("This User does not exist.");
->>>>>>> Stashed changes
         }
     }
 

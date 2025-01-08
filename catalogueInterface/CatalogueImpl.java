@@ -31,22 +31,25 @@ public class CatalogueImpl implements Catalogue {
     public List<Product> getAllProducts() throws SQLException {
         List<Product> products = new ArrayList<>();   //stores all the products selected through the select query
         //setting and executing the query
-        PreparedStatement query;
-        query = connection.prepareStatement("SELECT p.picture, p.productNo, p.description, p.price, p.prodName, s.stockLevel " +    //using PreparedStatements as having a String leaves
+       try (PreparedStatement query = connection.prepareStatement("SELECT p.picture, p.productNo, p.description, p.price, p.prodName, s.stockLevel " +    //using PreparedStatements as having a String leaves
                 "FROM ProductTable p " +
-                "LEFT JOIN StockTable s ON p.productNo = s.productNo");
-        query.execute();
-        ResultSet rs = query.executeQuery();
-        while (rs.next()) {
-            //initialising where all the product info will be stored before adding it to the Array
-            String productNo = rs.getString("productNo");
-            String description = rs.getString("description");
-            double price = rs.getDouble("price");
-            int stockLevel = rs.getInt("stockLevel");
-            String prodName = rs.getString("prodName");
+                "LEFT JOIN StockTable s ON p.productNo = s.productNo")) {
+           query.execute();
+           ResultSet rs = query.executeQuery();
+           while (rs.next()) {
+               //initialising where all the product info will be stored before adding it to the Array
+               String productNo = rs.getString("productNo");
+               String description = rs.getString("description");
+               double price = rs.getDouble("price");
+               int stockLevel = rs.getInt("stockLevel");
+               String prodName = rs.getString("prodName");
 
-            products.add(new Product(productNo, description, price, stockLevel, prodName)); //adding the product info to the Array
-        }
-        return products;
+               products.add(new Product(productNo, description, price, stockLevel, prodName)); //adding the product info to the Array
+           }
+       } catch (SQLException e) {
+           System.out.println("SQLException: " + e.getMessage());
+           e.printStackTrace();
+       }
+       return products;
     }
 }
