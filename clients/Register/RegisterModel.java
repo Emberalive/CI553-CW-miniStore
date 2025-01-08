@@ -5,6 +5,8 @@ import at.favre.lib.crypto.bcrypt.BCrypt;
 import dbAccess.DBAccess;
 import dbAccess.DBAccessFactory;
 
+import javax.sound.midi.SysexMessage;
+import javax.swing.*;
 import java.sql.*;
 
 public class RegisterModel {
@@ -24,21 +26,25 @@ public class RegisterModel {
         }
     }
 
-    public void addUser(String username, String password, RegisterView view) throws SQLException {
+    public void addUser(String username, String password, RegisterView view) {
+//        RegisterView rv = new RegisterView();
         LoginDBAccess();
         String hashedPass;
         hashedPass = (String) HashPass(password);
-        PreparedStatement query;
-        query = connection.prepareStatement("INSERT INTO EmplTable (userName, HashedPass) VALUES (? , ?)");
-        query.setString(1, username);
-        query.setString(2, hashedPass);
-        query.executeUpdate();
-        if (query.getUpdateCount() == 1) {
-            System.out.println("Employee " + username + " added to the database.");
-            view.setVisible(false);
-        } else {
-            System.out.println("User was not added to the database.");
+        try (PreparedStatement query = connection.prepareStatement("INSERT INTO EmplTable (userName, HashedPass) VALUES (? , ?)")) {
+            query.setString(1, username);
+            query.setString(2, hashedPass);
+            query.executeUpdate();
+        }catch (SQLException e) {
+            System.out.println("SQLException: " + e.getMessage());
+            e.printStackTrace();
+
+            JOptionPane.showMessageDialog(view,
+                    "Failed to add user: " + username);
         }
+        JOptionPane.showMessageDialog(view,
+                "Successfully added user: " + username);
+        view.setVisible(false);
     }
 
     public Object HashPass (String password){

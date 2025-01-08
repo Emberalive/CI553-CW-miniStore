@@ -37,8 +37,18 @@ public class CatalogueView extends Component {
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
         //adding the Products to the mainPanel
-        for (Product product : products) {
-            mainPanel.add(createProductCard(product));
+
+
+
+//        ArrayList<Product> products1 = null;  Uncomment this, and replace the usage of products with this variable to test the handling of an empty product ArrayList
+
+        if (products.isEmpty()) {
+            JOptionPane.showMessageDialog(mainPanel,
+                    "There are no products available!");
+        } else {
+            for (Product product : products) {
+                mainPanel.add(createProductCard(product, mainPanel));
+            }
         }
 
         //Adding a scrollpane to the window
@@ -60,9 +70,9 @@ public class CatalogueView extends Component {
         Positioning pos = new Positioning();
         pos.SetMonitorLocCatalogue(window);
 
-        window.setVisible(true);
+        window.setVisible(!products.isEmpty());
     }
-    private JPanel createProductCard(Product product) {
+    private JPanel createProductCard(Product product, JPanel mainPanel) {
         //creating the product pane card
         JPanel cardPanel = new JPanel();
         cardPanel.setPreferredSize(new Dimension(260, 200)); // Fixed size

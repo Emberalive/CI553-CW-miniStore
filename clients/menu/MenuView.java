@@ -3,7 +3,6 @@ package clients.menu;
 import Utils.Styling;
 import middle.LocalMiddleFactory;
 import middle.MiddleFactory;
-
 import javax.swing.*;
 import java.awt.*;
 import java.util.function.Predicate;
