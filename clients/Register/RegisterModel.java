@@ -27,7 +27,6 @@ public class RegisterModel {
     }
 
     public void addUser(String username, String password, RegisterView view) {
-//        RegisterView rv = new RegisterView();
         LoginDBAccess();
         String hashedPass;
         hashedPass = (String) HashPass(password);

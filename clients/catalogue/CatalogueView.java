@@ -11,6 +11,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.function.Predicate;
 
@@ -28,8 +29,9 @@ public class CatalogueView extends Component {
         try {
             catalogue = new CatalogueImpl();
             products = new ArrayList<>(catalogue.getAllProducts());
-        } catch (Exception e) {
-            throw new RuntimeException(e);
+        } catch (SQLException e) {
+            System.out.println("SQL Error: " + e.getMessage());
+            e.printStackTrace();
         }
 
         //layout and components
