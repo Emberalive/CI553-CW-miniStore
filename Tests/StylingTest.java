@@ -2,29 +2,13 @@ package Tests;
 
 import Utils.Styling;
 import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-
 import javax.swing.*;
-import javax.swing.plaf.metal.DefaultMetalTheme;
-import javax.swing.plaf.metal.MetalLookAndFeel;
 import java.awt.*;
 import java.util.function.Predicate;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 
 
 public class StylingTest {
-
-    //i was having issues with the colours not being the same, so i making them the same for the default colour
-    @BeforeEach
-    public void setUp() {
-        // Set consistent Look and Feel for the test
-        try {
-            MetalLookAndFeel.setCurrentTheme(new DefaultMetalTheme());
-            UIManager.setLookAndFeel(new MetalLookAndFeel());
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 
     @Test
     public void testStyling() {
@@ -48,19 +32,43 @@ public class StylingTest {
         //testing the colours for the button
         assertEquals(background, button.getBackground());
         assertEquals(foreground, button.getForeground());
+    }
 
-        //testing if the colours for the non styles JComponents have not been changed
-        Color defText = textField.getBackground();
-        Color defColor = textField.getForeground();
+    @Test
+    public void nonAssignedComponents() {
+            JPanel parent = new JPanel();
+            JButton button = new JButton("Button");
+            JLabel label = new JLabel("Label");
+            JTextField textField = new JTextField("TextField");
 
-        Color defLabel = label.getBackground();
-        Color defLabelColor = label.getForeground();
+            parent.add(button);
+            parent.add(label);
+            parent.add(textField);
 
-        assertEquals(defText, textField.getBackground());
-        assertEquals(defColor, textField.getForeground());
+            Color background = Color.BLACK;
+            Color foreground = Color.RED;
 
-        assertEquals(defLabel, label.getBackground());
-        assertEquals(defLabelColor, label.getForeground());
+            Predicate<Component> condition = component -> component instanceof JButton;
+
+            Styling styling = new Styling();
+            styling.styling(parent, background, foreground, condition);
+
+            //testing the colours for the button
+            assertEquals(background, button.getBackground());
+            assertEquals(foreground, button.getForeground());
+
+            //testing if the colours for the non styles JComponents have not been changed
+            Color defText = textField.getBackground();
+            Color defColor = textField.getForeground();
+
+            Color defLabel = label.getBackground();
+            Color defLabelColor = label.getForeground();
+
+            assertEquals(defText, textField.getBackground());
+            assertEquals(defColor, textField.getForeground());
+
+            assertEquals(defLabel, label.getBackground());
+            assertEquals(defLabelColor, label.getForeground());
     }
 
     @Test

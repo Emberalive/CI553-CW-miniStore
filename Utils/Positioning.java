@@ -185,7 +185,6 @@ public class Positioning {
                 c.setLocation(xPos, yPos);
             } else {
                 c.setLocation(0, 0); // Default to center on primary monitor
-
             }
         }
     }
