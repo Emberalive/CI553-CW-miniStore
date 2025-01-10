@@ -36,7 +36,7 @@ public class TestMyDBAccess {
             throw new RuntimeException("Failed to connect to the database.", e);
         }
         //adding an employee to the database so i can run a select query, as there is no values in the table to begin with
-        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO EmplTable (username, HashedPass) VALUES (?, ?), (?, ?)");
+        PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO EmplTable (username, HashedPass) VALUES (?, ?)");
         preparedStatement.setString(1, "Sam");
         preparedStatement.setString(2, "Password");
         preparedStatement.executeUpdate();

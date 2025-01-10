@@ -2,7 +2,6 @@ package Tests;
 
 import clients.Register.RegisterModel;
 import clients.Register.RegisterView;
-import clients.menu.Setup;
 import dbAccess.DBAccess;
 import dbAccess.DBAccessFactory;
 import org.junit.Test;
@@ -10,8 +9,6 @@ import org.junit.Test;
 import java.sql.*;
 
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.fail;
-import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class TestRegister {
 
@@ -46,6 +43,8 @@ public class TestRegister {
             PreparedStatement query = connection.prepareStatement("SELECT * FROM EmplTable WHERE username = ?");
             query.setString(1, username);
             ResultSet rs = query.executeQuery();
+
+            rs.next();
 
             // Check if the user exists
             assertEquals("The username should match the inserted value.", rs.getString("username").trim(), username);

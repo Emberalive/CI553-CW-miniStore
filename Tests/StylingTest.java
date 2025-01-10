@@ -14,12 +14,10 @@ public class StylingTest {
     public void testStyling() {
         JPanel parent = new JPanel();
         JButton button = new JButton("Button");
-        JLabel label = new JLabel("Label");
-        JTextField textField = new JTextField("TextField");
+
 
         parent.add(button);
-        parent.add(label);
-        parent.add(textField);
+
 
         Color background = Color.BLACK;
         Color foreground = Color.RED;
