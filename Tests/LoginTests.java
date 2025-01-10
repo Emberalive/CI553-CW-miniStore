@@ -48,4 +48,5 @@ public class LoginTests {
 
         assertTrue(testWindow.visibilityCalled, "Cashier view should be visible after valid password.");
     }
+
 }
