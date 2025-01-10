@@ -16,6 +16,7 @@ public class LoginModel extends Component {
     private static Connection connection;
     MiddleFactory mlf = new LocalMiddleFactory();
 
+
     public enum TargetView {
         CASHIER_VIEW,
         CUSTOMER_VIEW,
@@ -56,7 +57,7 @@ public class LoginModel extends Component {
         }
     }
 
-    private void checkPassword(String bcryptHashString, String password, LoginView view, TargetView targetView, String username) throws SQLException {
+    public void checkPassword(String bcryptHashString, String password, LoginView view, TargetView targetView, String username) throws SQLException {
         if (bcryptHashString == null) {
             if (view == null) {
                 System.out.println("View is null!");  // Debugging
