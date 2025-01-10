@@ -31,7 +31,14 @@ public class PositioningTest {
             assertEquals(xPos, window.getLocation().x);
             assertEquals(yPos, window.getLocation().y);
         } else {
-            System.out.println("No monitor selected");
+            Rectangle bounds = screens[0].getDefaultConfiguration().getBounds();
+            int xPos = bounds.x + (bounds.width - window.getWidth()) / 2;
+            int yPos = bounds.y + (bounds.height - window.getHeight()) / 2;
+
+            pos.SetMonitorStartUpMenu(window);
+
+            assertEquals(xPos, window.getLocation().x);
+            assertEquals(yPos, window.getLocation().y);
         }
 
     }
