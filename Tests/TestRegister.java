@@ -50,6 +50,4 @@ public class TestRegister {
             // Check if the user exists
             assertEquals("The username should match the inserted value.", rs.getString("username").trim(), username);
     }
-
-
 }

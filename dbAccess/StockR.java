@@ -141,6 +141,34 @@ public class StockR implements StockReader
     }
   }
 
+
+  // added a new method so that i can test the catalogue to see if it selected all the products, but i need the value as a string, so here we are
+  public String getImageString(String pnum) throws SQLException {
+    Connection connection;
+
+    try {
+      DBAccess dbDriver = (new DBAccessFactory()).getNewDBAccess(); //creates a new databaseAccess
+      dbDriver.loadDriver(); //loads the dbdrivers
+      connection = java.sql.DriverManager.getConnection( //gets a connection to the sql through the drivers
+              dbDriver.urlOfDatabase(), //allows access to where the db is stored
+              dbDriver.username(),  //gets the username for bdAccess
+              dbDriver.password()   //gets the password for dbAccess
+      );
+    } catch (Exception e) {
+      throw new RuntimeException("Failed to connect to the database.", e);
+    }
+
+    PreparedStatement query = connection.prepareStatement("select picture from ProductTable " +
+            "where productNo = ?");
+    query.setString(1, pnum );
+    ResultSet rs = query.executeQuery();
+    if (rs.next()) {
+      return rs.getString("picture"); // Retrieve the "picture" value
+    } else {
+      throw new SQLException("No image found for product number: " + pnum);
+    }
+  }
+
   /**
    * Returns 'image' of the product
    * @param pNum The product number

@@ -38,10 +38,6 @@ public class CatalogueView extends Component {
         JPanel mainPanel = new JPanel();
         mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-        //adding the Products to the mainPanel
-
-
-
 //        ArrayList<Product> products1 = null;  Uncomment this, and replace the usage of products with this variable to test the handling of an empty product ArrayList
 
         if (products.isEmpty()) {
