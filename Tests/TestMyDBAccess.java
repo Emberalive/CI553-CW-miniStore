@@ -18,7 +18,7 @@ public class TestMyDBAccess {
     private Connection connection;
 
 
-    //testing that my DBAccess methods actually access the database. I inserted values into the table as there is none in there, and tested if there is a result set based on the select query
+    //testing that my DBAccess methods actually access the database.
     @Test
     public void checkDBAccess() throws SQLException {
         LoginModel model = new LoginModel();
@@ -35,7 +35,7 @@ public class TestMyDBAccess {
         } catch (Exception e) {
             throw new RuntimeException("Failed to connect to the database.", e);
         }
-        //adding an employee to the database so i can run a select query
+        //adding an employee to the database so i can run a select query, as there is no values in the table to begin with
         PreparedStatement preparedStatement = connection.prepareStatement("INSERT INTO EmplTable (username, HashedPass) VALUES (?, ?), (?, ?)");
         preparedStatement.setString(1, "Sam");
         preparedStatement.setString(2, "Password");

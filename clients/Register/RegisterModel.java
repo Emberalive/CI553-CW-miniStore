@@ -41,8 +41,10 @@ public class RegisterModel {
             JOptionPane.showMessageDialog(view,
                     "Failed to add user: " + username);
         }
-        JOptionPane.showMessageDialog(view,
-                "Successfully added user: " + username);
+        if (System.getProperty("disableJOptionPane") == null) {
+            JOptionPane.showMessageDialog(view,
+                    "Successfully added user: " + username);
+        }
         view.setVisible(false);
     }
 
